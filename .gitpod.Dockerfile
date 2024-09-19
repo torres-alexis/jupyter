@@ -21,15 +21,6 @@ COPY environment.yml /tmp/environment.yml
 RUN mamba env create -f /tmp/environment.yml \
     && conda clean -afy
 
-# Activate conda environment and install additional packages
-SHELL ["/bin/bash", "-c"]
-RUN source $HOME/miniconda3/etc/profile.d/conda.sh \
-    && conda activate gl4u_rnaseq_2024 \
-    && conda install -c conda-forge notebook \
-    && pip install jupyter_contrib_nbextensions jupyter_nbextensions_configurator \
-    && jupyter contrib nbextension install --user \
-    && jupyter nbextension enable --py widgetsnbextension
-
 # Set up JupyterLab to trust all notebooks
 RUN mkdir -p ~/.jupyter \
     && echo "c.NotebookApp.token = ''" >> ~/.jupyter/jupyter_notebook_config.py \

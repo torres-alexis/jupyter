@@ -22,6 +22,10 @@ dependencies:
   - bioconductor-deseq2
   - bioconductor-edger
   - bioconductor-limma
+  - notebook
+  - jupyter_contrib_nbextensions
+  - jupyter_nbextensions_configurator
+  - ipywidgets
   - pip
   - pip:
     - jupyter_contrib_nbextensions==0.7.0
