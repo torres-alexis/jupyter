@@ -1,9 +1,9 @@
-# GL4U: RNAseq Bootcamp Intro
+# GL4U: RNAseq Bootcamp
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torres-alexis/binder/tree/gl4u-rnaseq-intro)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/torres-alexis/binder/gl4u-rnaseq-intro)
 
-This repository contains Jupyter Notebooks for the GL4U: RNAseq Bootcamp Intro.
+This repository contains Jupyter Notebooks for the GL4U: RNAseq Bootcamp.
 
 ## Getting Started
 
@@ -17,10 +17,11 @@ Note that Binder may experience issues preparing the environment.
 
 ## Contents
 
-1. [Introduction to Jupyter](notebooks/01_Introduction_to_Jupyter.ipynb)
-2. [Unix Introduction](notebooks/02_Unix_Introduction.ipynb)
-3. [R Introduction](notebooks/03_R_Introduction.ipynb)
-4. [Sequencing Data Quality Control](notebooks/04_Sequencing_Data_Quality_Control.ipynb)
+1. [Introduction to Jupyter](notebooks/01-jupyter-intro.ipynb)
+2. [Unix Introduction](notebooks/02-unix-intro.ipynb)
+3. [R Introduction](notebooks/03-R-intro.ipynb)
+4. [Sequencing Data Quality Control](notebooks/04-sequencing-data-QC.ipynb)
+5. [RNAseq Processing](notebooks/processing/01-RNAseq_processing.ipynb)
 
 ## Using Gitpod
 

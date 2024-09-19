@@ -2,34 +2,34 @@ FROM gitpod/workspace-base:latest
 
 USER gitpod
 
-# Install Miniconda
-RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh && \
-    bash ~/miniconda.sh -b -p $HOME/miniconda && \
-    rm ~/miniconda.sh
+# Install conda
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda3 \
+    && rm Miniconda3-latest-Linux-x86_64.sh
 
 # Add conda to path
-ENV PATH=$HOME/miniconda/bin:$PATH
+ENV PATH=$HOME/miniconda3/bin:$PATH
 
-# Initialize conda in bash config files:
-RUN conda init bash
+# Update conda and install mamba
+RUN conda update -n base -c defaults conda \
+    && conda install -n base -c conda-forge mamba
 
-# Install additional system dependencies if needed
-RUN sudo apt-get update && sudo apt-get install -y \
-    default-jre \
-    && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
-
-# Copy environment.yml to the image
+# Copy environment file
 COPY environment.yml /tmp/environment.yml
 
 # Create conda environment
-RUN conda env create -f /tmp/environment.yml && \
-    conda clean --all -f -y
+RUN mamba env create -f /tmp/environment.yml \
+    && conda clean -afy \
+    && rm /tmp/environment.yml
 
-# Add conda environment to PATH
-ENV PATH /home/gitpod/.conda/envs/gl4u-rnaseq-intro/bin:$PATH
+# Activate conda environment in bashrc
+RUN echo "conda activate gl4u_rnaseq_2024" >> ~/.bashrc
 
-# Activate conda environment
-RUN echo "conda activate gl4u-rnaseq-intro" >> ~/.bashrc
+# Install nbextension
+RUN jupyter contrib nbextension install --user \
+    && jupyter nbextension enable --py widgetsnbextension
 
-# Make sure the environment is activated for non-interactive shells
-ENV CONDA_DEFAULT_ENV=gl4u-rnaseq-intro
+# Set up JupyterLab to trust all notebooks
+RUN mkdir -p ~/.jupyter \
+    && echo "c.NotebookApp.token = ''" >> ~/.jupyter/jupyter_notebook_config.py \
+    && echo "c.NotebookApp.password = ''" >> ~/.jupyter/jupyter_notebook_config.py

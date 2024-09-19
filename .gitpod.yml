@@ -1,14 +1,16 @@
 image:
   file: .gitpod.Dockerfile
 
+tasks:
+  - init: |
+      conda env create -f environment.yml
+      conda activate gl4u_rnaseq_2024
+    command: |
+      jupyter lab --NotebookApp.allow_origin='*' --NotebookApp.ip='0.0.0.0'
+
 ports:
   - port: 8888
-    onOpen: open-browser
-
-tasks:
-  - command: |
-      conda activate gl4u-rnaseq-intro
-      jupyter lab --NotebookApp.allow_origin='*' --NotebookApp.ip='0.0.0.0'
+    onOpen: open-preview
 
 github:
   prebuilds:
