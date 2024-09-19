@@ -24,7 +24,7 @@ When you open the project in Gitpod:
    [I 2024-09-19 02:56:58.464 ServerApp] Serving notebooks from local directory: /workspace/binder
    [I 2024-09-19 02:56:58.464 ServerApp] Jupyter Server 2.14.2 is running at:
    [I 2024-09-19 02:56:58.464 ServerApp] http://ghusername-repo-slajyvb4zo0:8888/lab
-   [I 2024-09-19 02:56:58.464 ServerApp]     http://127.0.0.1:8888/lab
+   [I 2024-09-19 02:56:58.464 ServerApp] http://127.0.0.1:8888/lab
    ```
 4. Click on the http://127.0.0.1:8888/lab link. Gitpod will open JupyterLab in a new tab.
 5. All notebooks and data files will be available in the JupyterLab interface.
