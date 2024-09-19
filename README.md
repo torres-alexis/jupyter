@@ -47,5 +47,3 @@ When you click the "Launch Binder" button:
 
 ### Processing
 1. [RNAseq Processing](notebooks/processing/01-RNAseq_processing.ipynb)
-
-For any issues or questions, please open an issue in this repository.
