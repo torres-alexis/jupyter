@@ -19,8 +19,7 @@ COPY environment.yml /tmp/environment.yml
 
 # Create conda environment
 RUN mamba env create -f /tmp/environment.yml \
-    && conda clean -afy \
-    && rm /tmp/environment.yml
+    && conda clean -afy
 
 # Activate conda environment in bashrc
 RUN echo "conda activate gl4u_rnaseq_2024" >> ~/.bashrc
