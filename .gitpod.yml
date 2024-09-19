@@ -1,0 +1,17 @@
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  - port: 8888
+    onOpen: open-browser
+
+tasks:
+  - command: |
+      conda activate gl4u-rnaseq-intro
+      jupyter lab --NotebookApp.allow_origin='*' --NotebookApp.ip='0.0.0.0'
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true

@@ -1,0 +1,19 @@
+name: gl4u-rnaseq-intro
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+
+dependencies:
+  - python=3.10
+  - jupyterlab=4.2.5
+  - bash_kernel=0.9.3
+  - coreutils=9.5
+  - fastqc=0.12.1
+  - multiqc=1.24.1
+  - r-base=4.4.1
+  - r-irkernel=1.3.2
+  - r-tidyverse=2.0.0
+  - pip
+  - pip:
+    - jupyter-contrib-nbextensions==0.7.0
