@@ -21,11 +21,11 @@ COPY environment.yml /tmp/environment.yml
 RUN mamba env create -f /tmp/environment.yml \
     && conda clean -afy
 
-# Activate conda environment in bashrc
-RUN echo "conda activate gl4u_rnaseq_2024" >> ~/.bashrc
-
-# Install nbextension
-RUN jupyter contrib nbextension install --user \
+# Activate conda environment and install nbextensions
+SHELL ["/bin/bash", "-c"]
+RUN source $HOME/miniconda3/etc/profile.d/conda.sh \
+    && conda activate gl4u_rnaseq_2024 \
+    && jupyter contrib nbextension install --user \
     && jupyter nbextension enable --py widgetsnbextension
 
 # Set up JupyterLab to trust all notebooks
