@@ -1,0 +1,30 @@
+name: gl4u_rnaseq_2024
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - jupyterlab=4.2.5
+  - bash_kernel=0.9.3
+  - r-irkernel
+  - coreutils=9.5
+  - python>3.10
+  - star=2.7.11b
+  - cutadapt=4.9
+  - trim-galore=0.6.10
+  - fastqc=0.12.1
+  - multiqc=1.24.1
+  - rseqc=5.0.3
+  - samtools
+  - r-base
+  - r-tidyverse
+  - r-ggfortify
+  - r-ggnewscale
+  - r-biocmanager
+  - htslib
+  - openssl
+  - nodejs
+  - nbconvert
+  - pip
+  - pip:
+    - jupyter_contrib_nbextensions==0.7.0
