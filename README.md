@@ -1,6 +1,6 @@
 # GL4U Intro 
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torres-alexis/binder/tree/GL4U_Intro)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torres-alexis/jupyter/tree/GL4U_Intro)
 
 This repository contains Jupyter Notebooks for the GL4U Intro.
 
