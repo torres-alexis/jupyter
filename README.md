@@ -1,7 +1,7 @@
 # GL4U: RNAseq Bootcamp
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torres-alexis/binder/tree/gl4u-rnaseq-intro)
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/torres-alexis/binder/gl4u-rnaseq-intro)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torres-alexis/jupyter/tree/gl4u-rnaseq-intro)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/torres-alexis/jupyter/gl4u-rnaseq-intro)
 
 This repository contains Jupyter Notebooks for the GL4U: RNAseq Bootcamp.
 
