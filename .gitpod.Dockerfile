@@ -23,7 +23,6 @@ RUN sudo apt-get update && sudo apt-get install -y \
     zlib1g-dev \
     libbz2-dev \
     liblzma-dev \
-    libgcc-ng \
     && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
 # Install Miniconda

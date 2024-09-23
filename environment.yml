@@ -26,5 +26,6 @@ dependencies:
   - trim-galore==0.6.10
   - fastqc==0.12.1
   - multiqc==1.24.1
+  - libgcc-ng >=12
   - rseqc==5.0.3
   - samtools==1.21
