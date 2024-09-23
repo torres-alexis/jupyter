@@ -79,10 +79,9 @@ RUN conda run -n gl4u_rnaseq_2024 R -e "\
     ), ask = FALSE); \
     install.packages('tidyHeatmap', dependencies = TRUE);"
 
-# Set conda channel priority to flexible and install RSeQC
-RUN conda config --set channel_priority flexible && \
-    mamba install -n gl4u_rnaseq_2024 -c bioconda -c conda-forge rseqc=5.0.3 && \
-    conda config --set channel_priority strict
+# Install RSeQC 5.0.3 and add to PATH
+RUN conda run -n gl4u_rnaseq_2024 pip install RSeQC==5.0.3 && \
+    echo 'export PATH=$PATH:$HOME/miniconda3/envs/gl4u_rnaseq_2024/bin' >> $HOME/.bashrc
 
 # Set up JupyterLab to trust all notebooks
 RUN mkdir -p ~/.jupyter \
