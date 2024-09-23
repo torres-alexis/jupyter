@@ -40,18 +40,30 @@ RUN echo "conda activate gl4u_rnaseq_2024" >> ~/.bashrc
 ENV PATH=$HOME/miniconda3/envs/gl4u_rnaseq_2024/bin:$PATH
 
 # Install RSEM using conda
-RUN conda install -n gl4u_rnaseq_2024 -c bioconda rsem==1.3.3
-
-# Install rtidyheatmap using conda
-RUN conda install -n gl4u_rnaseq_2024 -c bioconda r-tidyheatmap==1.8.1
+RUN conda install -n gl4u_rnaseq_2024 -c bioconda rsem
   
 # Configure R
 RUN mkdir -p ~/.R && \
     echo "options(repos = c(CRAN = 'https://cloud.r-project.org'))" > ~/.Rprofile
 
 # Install additional R packages
-COPY install_r_packages.R /tmp/install_r_packages.R
-RUN conda run -n gl4u_rnaseq_2024 Rscript /tmp/install_r_packages.R
+RUN conda run -n gl4u_rnaseq_2024 R -e "\
+    options(repos = c(CRAN = 'https://cloud.r-project.org')); \
+    if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager', dependencies = TRUE); \
+    BiocManager::install(c( \
+        'tximport', \
+        'DESeq2', \
+        'org.Mm.eg.db', \
+        'STRINGdb', \
+        'PANTHER.db', \
+        'ComplexHeatmap', \
+        'EnhancedVolcano', \
+        'clusterProfiler', \
+        'goseq', \
+        'fgsea', \
+        'enrichplot' \
+    ), ask = FALSE); \
+    install.packages('tidyHeatmap', dependencies = TRUE);"
 
 # Set up JupyterLab to trust all notebooks
 RUN mkdir -p ~/.jupyter \
