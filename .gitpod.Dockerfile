@@ -40,8 +40,11 @@ RUN echo "conda activate gl4u_rnaseq_2024" >> ~/.bashrc
 ENV PATH=$HOME/miniconda3/envs/gl4u_rnaseq_2024/bin:$PATH
 
 # Install RSEM using conda
-RUN conda install -n gl4u_rnaseq_2024 -c bioconda rsem=1.3.3
+RUN conda install -n gl4u_rnaseq_2024 -c bioconda rsem==1.3.3
 
+# Install rtidyheatmap using conda
+RUN conda install -n gl4u_rnaseq_2024 -c bioconda r-tidyheatmap==1.8.1
+  
 # Configure R
 RUN mkdir -p ~/.R && \
     echo "options(repos = c(CRAN = 'https://cloud.r-project.org'))" > ~/.Rprofile

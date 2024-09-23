@@ -4,27 +4,27 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - jupyterlab=4.2.5
-  - bash_kernel=0.9.3
-  - r-irkernel
-  - coreutils=9.5
   - python>3.10
-  - star=2.7.11b
-  - cutadapt=4.9
-  - trim-galore=0.6.10
-  - fastqc=0.12.1
-  - multiqc=1.24.1
-  - rseqc=5.0.3
-  - samtools
-  - r-base
-  - r-tidyverse
-  - r-ggfortify
-  - r-ggnewscale
-  - r-biocmanager
+  - pip
+  - jupyterlab==4.2.5
+  - bash_kernel==0.9.3
+  - r-irkernel
+  - nbconvert
+  - pip:
+    - jupyter_contrib_nbextensions==0.7.0
+  - coreutils
   - htslib
   - openssl
   - nodejs
-  - nbconvert
-  - pip
-  - pip:
-    - jupyter_contrib_nbextensions==0.7.0
+  - r-base==4.4.1
+  - r-biocmanager==1.30.25
+  - r-tidyverse==2.0.0
+  - r-ggfortify==0.4.17
+  - r-ggnewscale==0.5.0
+  - star==2.7.11b
+  - cutadapt==4.9
+  - trim-galore==0.6.10
+  - fastqc==0.12.1
+  - multiqc==1.24.1
+  - rseqc==5.0.3
+  - samtools==1.21
