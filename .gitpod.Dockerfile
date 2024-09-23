@@ -18,6 +18,12 @@ RUN sudo apt-get update && sudo apt-get install -y \
     make \
     texlive-full \
     pandoc \
+    g++ \
+    libncurses5-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    liblzma-dev \
+    libgcc-ng \
     && sudo apt-get clean && sudo rm -rf /var/lib/apt/lists/*
 
 # Install Miniconda
@@ -39,9 +45,18 @@ RUN echo "conda activate gl4u_rnaseq_2024" >> ~/.bashrc
 # Add R and Rscript to PATH
 ENV PATH=$HOME/miniconda3/envs/gl4u_rnaseq_2024/bin:$PATH
 
-# Install RSEM using conda
-RUN conda install -n gl4u_rnaseq_2024 -c bioconda rsem
-  
+# Install RSEM from source
+RUN wget https://github.com/deweylab/RSEM/archive/v1.3.3.tar.gz && \
+    tar -xzvf v1.3.3.tar.gz && \
+    cd RSEM-1.3.3 && \
+    make && \
+    sudo make install && \
+    cd .. && \
+    rm -rf RSEM-1.3.3 v1.3.3.tar.gz
+
+# Add RSEM to PATH
+ENV PATH="/usr/local/bin:${PATH}"
+
 # Configure R
 RUN mkdir -p ~/.R && \
     echo "options(repos = c(CRAN = 'https://cloud.r-project.org'))" > ~/.Rprofile
@@ -69,3 +84,6 @@ RUN conda run -n gl4u_rnaseq_2024 R -e "\
 RUN mkdir -p ~/.jupyter \
     && echo "c.NotebookApp.token = ''" >> ~/.jupyter/jupyter_notebook_config.py \
     && echo "c.NotebookApp.password = ''" >> ~/.jupyter/jupyter_notebook_config.py
+
+# Add Conda initialization to .bashrc
+RUN echo ". $HOME/miniconda3/etc/profile.d/conda.sh" >> ~/.bashrc
