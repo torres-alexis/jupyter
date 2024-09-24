@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: torresalexis/gl4u_rnaseq_2024:1.0.0
 
 tasks:
   - init: |
