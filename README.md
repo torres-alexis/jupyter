@@ -1,6 +1,6 @@
 # GL4U RNAseq
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torres-alexis/jupyter/tree/GL4U_RNAseq)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/torres-alexis/jupyter/tree/GL4U_RNAseq_docker)
 
 This repository contains Jupyter Notebooks and data for the GL4U RNAseq bootcamp.
 
